@@ -8,7 +8,7 @@ This information might also give us somewhat of an estimation as to which develo
 
 Information about these libraries seems to be scarce to come by, and it should also be noted that your web searches may be confused with the community-driven PS2SDK project.
 Care has been taken to ensure the information below is drawn from either official PS2 documentation archives, or otherwise inferred from the decompilation.
-| Location | String Representation | Library Meaning | Library Description |
+| Location | String Representation | (Inferred) Meaning | Library Description |
 | --- | --- | --- | --- |
 | 00678740 | "PsIIlibcdvd 3000" | PS2 CD/DVD Library | No official docs available. Suggested to be CD/DVD interactivity due to 006fe9f0 mentioning a function `CdDiskReady`. |
 | 0067c4f0 | "PsIIlibpad2 3020" | PS2 (Controller) Pad Library 2 | Interacting with the DualShock controller(s). It's predecessing library documentation can be found [here](https://archive.org/details/ps-2-programmer-tool-runtime-library-controller-library). I'm unable to find an archive for libpad2. |
