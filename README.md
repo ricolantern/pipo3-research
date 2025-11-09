@@ -3,7 +3,7 @@ A solo project that contains research findings and commentary based on reverse e
 The main goal is to use the found knowledge to re-construct the game in question, using its original assets and my own code utilizing the [Godot Engine](https://godotengine.org/).
 The results of which will not be made publicly available, but documented in indirect formats instead (video, sound, plain text, etc).
 
-Despite 5+ years of experience in game development & programming, this project is my first step into reverse engineering.
+Despite my prior experience in game development & programming, this project is my first step into reverse engineering.
 Please adjust your expectations accordingly.
 ## Specifications
 | Spec | Description |
