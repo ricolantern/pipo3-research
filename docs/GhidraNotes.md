@@ -2,7 +2,7 @@
 Areas of interest for further research.
 Contents are technical and in the context of Ghidra.
 
-## _Game SDK Version strings_
+## _Game SDK version strings_
 Defined Strings search on "PSII" reveals a handful of strings that detail the exact version of some of the SDK libraries the game uses for interacting with the hardware.
 This information might also give us somewhat of an estimation as to which development kits were used in development, and perhaps even help in narrowing down early builds of the game??
 
@@ -17,3 +17,9 @@ Care has been taken to ensure the information below is drawn from either officia
 | 0067f9b0 | "PsIIlibkernl3000" | PS2 Kernel Library | Self explanatory. Used for interactions with the PS2 kernel. |
 
 TODO: Look into the specifics of the .irx files.
+
+## _Exposed source code strings_
+There's a crap ton of strings formatted that scream they are properties, constants, events, enums, and even function definitions that include return & argument types.
+Can prove to be immensely useful in the decompilation.
+
+TODO: Think of a plan of approach. Could be good to extract all of these strings, categorizing them, and using them as cross-reference in making sense of the decomp. Likely need to write a script for this.
