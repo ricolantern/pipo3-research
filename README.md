@@ -16,7 +16,7 @@ Please adjust your expectations accordingly.
 | _[Ghidra 11.4.2](https://github.com/NationalSecurityAgency/ghidra/releases/tag/Ghidra_11.4.2_build)_ | Primary research tool used to decompile & snoop through the game's files. |
 | _[Ghidra Emotion Engine: Reloaded](https://github.com/chaoticgd/ghidra-emotionengine-reloaded)_ | Ghidra extension that introduces a wide variety of support for PS2 disassembly & decompilation. |
 ## Index
-- [Ghidra notes](#)
+- [Ghidra notes](https://github.com/ricolantern/pipo3-research/blob/main/docs/GhidraNotes.md)
 - [Scripts](#)
 - _Findings_
   - TODO
