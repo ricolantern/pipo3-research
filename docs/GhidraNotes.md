@@ -15,11 +15,14 @@ Care has been taken to ensure the information below is drawn from either officia
 | 0067c560 | "PsIIlibdbc  3020" | PS2 Debug Channel Library | Defined Strings search on "dbc" reveals several output strings mentioning sockets and RPC. The string "sceDbcGetDeviceStatus: rpc error" suggests this was probably used to communicate with a dev kit. |
 | 0067c578 | "PsIIspu2mem 3000" | PS2 SPU I/O | Used for memory transfers related to sound, as suggested by 006f10b0 (`static void SoundSys::load2spu(const char*, unsigned int)`) |
 | 0067f9b0 | "PsIIlibkernl3000" | PS2 Kernel Library | Self explanatory. Used for interactions with the PS2 kernel. |
-
-TODO: Look into the specifics of the .irx files.
+> [!NOTE]
+> Look into the specifics of the .irx files.
 
 ## _Exposed source code strings_
 There's a crap ton of strings formatted that scream they are properties, constants, events, enums, and even function definitions that include return & argument types.
 Can prove to be immensely useful in the decompilation.
 
-TODO: Think of a plan of approach. Could be good to extract all of these strings, categorizing them, and using them as cross-reference in making sense of the decomp. Likely need to write a script for this.
+Game engines like Unity & Godot allow exposing properties into the engine's inspector window by serializing them, for ease of access by designers & other non-programmers.
+Something similar to this may be the reason why all of these strings are here.
+> [!NOTE]
+> Think of a plan of approach. Could be good to extract all of these strings, categorizing them, and using them as cross-reference in making sense of the decomp. Likely need to write a script for this.
