@@ -11,6 +11,7 @@ Please adjust your expectations accordingly.
 | --- | --- |
 | _Game Name_ | Ape Escape 3 / Saru Get You 3 / サルゲッチュ3 |
 | _Game Region_ | NTSC-J (For code & file decomp) / USA (For english assets) |
+| _Current Focus_ | Reverse engineering code related to the .i3d format |
 ## Toolset
 | Tool | Description |
 | --- | --- |
