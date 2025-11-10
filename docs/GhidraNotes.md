@@ -2,12 +2,8 @@
 Areas of interest for further research.
 Contents are technical and in the context of Ghidra.
 ## _Quick notes/todos for later_
-- .i3d format references in strings, locations 006ca3f0 and 006ca3a7 (`?RemoraObjectImpl::RemoraObjectImpl(const simd::Octaword&, Object*)`) are _extremely_ interesting, exposing some details about the internal animation system it seems?
-  - Based on these "Remora" occurrences, AI suggests Ape Escape 2/3, ICO, Shadow of the Colossus, all share the same engine (or at least, extremely similar iterations). This appears to be based on the timeframe of these games (2000-2005) and the key staff involved in development and maintenance of the involved tech libraries at the studio. It mentions decomps of ICO and SotC exist, so it'd be VERY beneficial to look at those and compare.
-  - Research RTTI/vtable examination workflows.
-- Tons of strings like `my:AnimationStart` and others that begin with "my:", according to AI, indicate that it's part of the internal data-driven animation/event system (go figure) defined in XML-like files. Most notably, it also suggests the "my" portion is a namespace that likely refers to something like "movie" or better yet, "Maya" (as in, Autodesk Maya!).
-  - Quick search suggests Maya actually seems to be able to work with i3d files directly?! Why did no one notice this if true??? RESEARCH THIS.
-    - https://www.autodesk.com/support/technical/article/caas/tsarticles/ts/6ozx0WbyDFIJfSFHHcyZWV.html
+- .i3d format references in strings, locations 006ca3f0 and 006ca3a7 (`?RemoraObjectImpl::RemoraObjectImpl(const simd::Octaword&, Object*)`) are interesting, exposing some hints about the internal animation system it seems?
+- Tons of strings like `my:AnimationStart` and others that begin with "my:", according to AI, indicate that it's part of the internal data-driven animation/event system (go figure) defined in XML-like files. Most notably, it also suggests the "my" portion is a namespace that likely refers to something like "movie" or better yet, "Maya" (as in, pre-autodesk Maya).
 - All display strings for the debug menu are present (but according to [this video](https://www.youtube.com/watch?v=kqsBNmCSZWU) they don't display at all for some reason. They're also slightly different from what this video displays). Create a patcher to restore these strings and add indicators to those that cause a crash.
 - `Tim2` is referenced (006e6320 `void Tim2::initialize(int, int, const char*)`) among other tim2 strings. This is likely the (sole?) image format used in the game.
 - `Mpeg2` is referenced (006e6268 `void Mpeg2Stream::initialize(const char*, int, int, bool)`) for pre-rendered cutscene use.
@@ -47,3 +43,12 @@ Game engines like Unity & Godot allow exposing properties into the engine's insp
 Something similar to this may be the reason why all of these strings are here.
 > [!NOTE]
 > Think of a plan of approach. Could be good to extract all of these strings, categorizing them, and using them as cross-reference in making sense of the decomp. Likely need to write a script for this.
+## _i3d file format_
+- Header strings exist:
+  - `I3D_BIN` (006fd0f8) = Model + bones?
+  - `I3D_I3M` (006fd190) = Animation?
+    - 0039e780 contains 4 consecutive pointer fixups likely representing offsets inside the i3d file. what does each refer to?
+  - `I3D_I3C` (006fd198) = ??? (guessing collisions)
+> [!NOTE]
+> Tracing these strings (currently focused on I3M) so far seems to lead up to the I3M loading procedures.
+> When do zlip deflate algorithms come into play?
