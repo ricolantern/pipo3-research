@@ -44,11 +44,14 @@ Something similar to this may be the reason why all of these strings are here.
 > [!NOTE]
 > Think of a plan of approach. Could be good to extract all of these strings, categorizing them, and using them as cross-reference in making sense of the decomp. Likely need to write a script for this.
 ## _i3d file format_
-- Header strings exist:
+- Magic strings exist:
   - `I3D_BIN` (006fd0f8) = Model + bones?
   - `I3D_I3M` (006fd190) = Animation?
-    - 0039e780 contains 4 consecutive pointer fixups likely representing offsets inside the i3d file. what does each refer to?
   - `I3D_I3C` (006fd198) = ??? (guessing collisions)
+- Header
+  - `+0x0 + 8` = magic ^
+  - `+0x08 + 4` = version + type
+  - `+0x0c + 4` = runtime flag?
 > [!NOTE]
 > Tracing these strings (currently focused on I3M) so far seems to lead up to the I3M loading procedures.
 > When do zlip deflate algorithms come into play?
