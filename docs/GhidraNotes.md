@@ -3,17 +3,18 @@ Areas of interest for further research.
 Contents are technical and in the context of Ghidra.
 ## _Quick notes/todos for later_
 - .i3d format references in strings, locations 006ca3f0 and 006ca3a7 (`?RemoraObjectImpl::RemoraObjectImpl(const simd::Octaword&, Object*)`) are interesting, exposing some hints about the internal animation system it seems?
-- Tons of strings like `my:AnimationStart` and others that begin with "my:", according to AI, indicate that it's part of the internal data-driven animation/event system (go figure) defined in XML-like files. Most notably, it also suggests the "my" portion is a namespace that likely refers to something like "movie" or better yet, "Maya" (as in, pre-autodesk Maya).
 - All display strings for the debug menu are present (but according to [this video](https://www.youtube.com/watch?v=kqsBNmCSZWU) they don't display at all for some reason. They're also slightly different from what this video displays). Create a patcher to restore these strings and add indicators to those that cause a crash.
 - `Tim2` is referenced (006e6320 `void Tim2::initialize(int, int, const char*)`) among other tim2 strings. This is likely the (sole?) image format used in the game.
 - `Mpeg2` is referenced (006e6268 `void Mpeg2Stream::initialize(const char*, int, int, bool)`) for pre-rendered cutscene use.
-- What's a "DashBall" (006f86d0)? Some rendition of the dash ring gear or maybe an early name?
 - There's a copyright notice for zlib (`" inflate 1.2.1 Copyright 1995-2003 Mark Adler "`). This likely means that the assets come pre-compressed and are then decompressed at runtime using zlib.
   - https://zlib.net/fossils/
+  - string locations indicate this is at least used to decompress non-midi sound files?
 - `xml=http://www.w3.org/XML/1998/namespace` is mentioned.
-- There's a copyright notice for the Lua version used for dynamic editing of properties. The exact version is `Lua 5.0 Copyright (C) 1994-2003`.
-- The build date for the Japan release is `"2005/06/21,14:49:06"`
-- `sg2vab.c` is referenced as a string (what isn't at this point???).
+- There's a copyright notice for the Lua version used for dynamic editing of properties `Lua 5.0 Copyright (C) 1994-2003`.
+- Build dates
+  - NTSC-J `2005/06/21,14:49:06`
+  - NTSC-U `2005/12/16,17:48:46`
+- `sg2vab.c`.
   - sg2 = "Sound Group 2"
   - vab = "Voice-Attribute Bank" (.VAB, .VH, .VB)
     - contains instrument definitions + ADPCM samples??
@@ -22,7 +23,7 @@ Contents are technical and in the context of Ghidra.
 
 ## _Game SDK version strings_
 Defined Strings search on "PSII" reveals a handful of strings that detail the exact version of some of the SDK libraries the game uses for interacting with the hardware.
-This information might also give us somewhat of an estimation as to which development kits were used in development, and perhaps even help in narrowing down early builds of the game??
+This information might give us somewhat of an estimation as to which development kits were used in development.
 
 Information about these libraries seems to be scarce to come by, and it should also be noted that your web searches may be confused with the community-driven PS2SDK project.
 Care has been taken to ensure the information below is drawn from either official PS2 documentation archives, or otherwise inferred from the decompilation.
@@ -50,8 +51,8 @@ Something similar to this may be the reason why all of these strings are here.
   - `I3D_I3C` (006fd198) = ??? (guessing collisions)
 - Header
   - `+0x0 + 8` = magic ^
-  - `+0x08 + 4` = version + type
-  - `+0x0c + 4` = runtime flag?
+  - `+0x08 + 4` = version + type (doesn't appear in BIN?)
+  - `+0x0c + 4` = runtime flag? (doesn't appear in BIN?)
 > [!NOTE]
 > Tracing these strings (currently focused on I3M) so far seems to lead up to the I3M loading procedures.
 > When do zlip deflate algorithms come into play?
