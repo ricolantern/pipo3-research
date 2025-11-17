@@ -46,13 +46,21 @@ Something similar to this may be the reason why all of these strings are here.
 > Think of a plan of approach. Could be good to extract all of these strings, categorizing them, and using them as cross-reference in making sense of the decomp. Likely need to write a script for this.
 ## _i3d file format_
 - Magic strings exist:
-  - `I3D_BIN` (006fd0f8) = Model + bones?
-  - `I3D_I3M` (006fd190) = Animation?
-  - `I3D_I3C` (006fd198) = ??? (guessing collisions)
+  - `I3D_BIN` (006fd0f8) = Visual model + rig
+  - `I3D_I3M` (006fd190) = Animation
+  - `I3D_I3C` (006fd198) = Collision model
+    - seems only the files that start with "col" have this magic.
 - Header
-  - `+0x0 + 8` = magic ^
-  - `+0x08 + 4` = version + type (doesn't appear in BIN?)
-  - `+0x0c + 4` = runtime flag? (doesn't appear in BIN?)
+  - `+0x0 + 8` - magic ^
+  - `0x08` - bool?
+    - BIN = 01
+    - I3M = 01
+    - I3C = 00
+  - `0x0A` - ???
+    - BIN = 10
+    - I3M = 02
+    - I3C = 03
+  - `+0x0c + 4` - runtime flag? (doesn't appear in BIN?)
 > [!NOTE]
 > Tracing these strings (currently focused on I3M) so far seems to lead up to the I3M loading procedures.
 > When do zlip deflate algorithms come into play?
