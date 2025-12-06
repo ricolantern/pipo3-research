@@ -19,6 +19,20 @@ Please adjust your expectations accordingly.
 | _[Ghidra Emotion Engine: Reloaded](https://github.com/chaoticgd/ghidra-emotionengine-reloaded)_ | Ghidra extension that introduces a wide variety of support for PS2 disassembly & decompilation. |
 ## Index
 - [Ghidra notes](https://github.com/ricolantern/pipo3-research/blob/main/docs/GhidraNotes.md)
+## Task List
+Points of interest I plan to go over, in order.
+- [ ] (CURRENT FOCUS) Fully reverse the .i3d file format, opening the doors to full control over the game's 3D assets.
+   - [ ] Ape Escape 3 uses a generalized .i3d format, but other games made in the same engine around that timeframe split it up into .i3r (rig), i3m (motion), i3c (collision). Why is AE3 the odd one out? Is this a bug in the BMS script? Debug the BMS script since there seem to be other issues with it too.
+   - [ ] Create basic model viewer UI.
+   - [ ] Write foundations for i3d importer; focus on camera functionality for debugging the i3d output.
+   - [ ] (Re)Design the i3d reader, keeping in mind the i3r, i3m, i3c variations (Any structure differences between the games??).
+- [ ] Restore the text strings missing from the NTSC-J debug menu. They're still present in the code.
+   - [ ] Figure out how to enable the debug menu (everyone is gatekeeping).
+- [ ] Study the game's sound system.
+   - [ ] Find out how .midi works in tandem with .hd and .bd.
+   - [ ] Find out how reverb is applied to instruments. This is done at run-time.
+   - [ ] Export to .wav?
+   - [ ] The game can stream audio as well. Can I somehow disable .midi for the soundtrack entirely, replacing it with streams of the soundtrack release?
 ## Interesting Finds
 ### The Game Engine
 Codenamed "BULLETS" -- Sony's in-house game engine, strongly suggested to have been used to develop AE3 and various other titles from around that timeframe.
