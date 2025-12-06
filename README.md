@@ -25,6 +25,7 @@ Points of interest I plan to go over, in order.
    - [ ] Ape Escape 3 uses a generalized .i3d format, but other games made in the same engine around that timeframe split it up into .i3r (rig), i3m (motion), i3c (collision). Why is AE3 the odd one out? Is this a bug in the BMS script? Debug the BMS script since there seem to be other issues with it too.
    - [ ] Create basic model viewer UI.
    - [ ] Write foundations for i3d importer; focus on camera functionality for debugging the i3d output.
+   - [ ] Parse i3d headers.
    - [ ] (Re)Design the i3d reader, keeping in mind the i3r, i3m, i3c variations (Any structure differences between the games??).
 - [ ] Restore the text strings missing from the NTSC-J debug menu. They're still present in the code.
    - [ ] Figure out how to enable the debug menu (everyone is gatekeeping).
