@@ -10,7 +10,7 @@ Please adjust your expectations accordingly.
 | Spec | Description |
 | --- | --- |
 | _Game Name_ | Ape Escape 3 / Saru Get You 3 / サルゲッチュ3 |
-| _Game Region_ | NTSC-J (For code & file decomp) / USA (For english assets) |
+| _Game Region_ | NTSC-J (For code & file decomp) / NTSC-U (For english assets) |
 | _Current Focus_ | Reverse engineering code related to the .i3d format |
 ## Toolset
 | Tool | Description |
@@ -22,6 +22,7 @@ Please adjust your expectations accordingly.
 ## Task List
 Points of interest I plan to go over, in order.
 - [ ] (CURRENT FOCUS) Fully reverse and document the .i3d file format, opening the doors to full control over the game's 3D assets.
+   - [ ] List all of Sony's games that you can _confirm_ use the .i3d format. Cross-reference each game's decomp to study how the format is pieced together.
    - [ ] Ape Escape 3 uses a generalized .i3d format, but other games made in the same engine around that timeframe split it up into .i3r (rig), i3m (motion), i3c (collision). Why is AE3 the odd one out? Is this a bug in the BMS script? Debug the BMS script since there seem to be other issues with it too.
    - [ ] Create basic model viewer UI.
    - [ ] Write foundations for i3d importer; focus on camera functionality for debugging the i3d output.
