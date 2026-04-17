@@ -32,6 +32,11 @@ Interestingly, _Ape Escape 3_ so far seems to have been one of, if not the earli
 This can be inferred from how every format -- mesh, animation, collision -- are all stored in files suffixed with "i3d" rather than their own variant counterparts
 (e.g. a sane developer would want to be able to identify an animation file by a "i3m" suffix instead of "i3d"!)
 All of the games listed in [The Engine](#the-engine) section above properly split their files into their variant counterparts, but Ape Escape 3 is the sole outlier.
+
+### Related Strings
+- ` i3d_package_version 050121 : ` @ `006eb8b4` of the EU version.
+  - Seems to be formatted as `yymmdd`, which is a date marking January 21st, 2005 (nearly 6 months before the JP release).
+
 > [!NOTE]
 > **TODO:** _Other games listed above use new i3d variant headers I3R (rig?), I3S (skin?). Document these._
 ## Image Format
